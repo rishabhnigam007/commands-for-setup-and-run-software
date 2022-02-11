@@ -1,0 +1,23 @@
+Run Zookeeper by opining a new cmd and type "zkserver"
+\bin\windows\zookeeper-server-start.bat ..\..\config\zookeeper.properties
+
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+command to run kafka server:
+----------------------------
+
+1.Under kafka Installation Directory, run below command
+c:\kafkaPOC\kafka_2.11-1.0.1> .\bin\windows\kafka-server-start.bat .\config\server.properties
+
+Create Topic
+c:\kafkaPOC\kafka_2.11-1.0.1\bin\windows> kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic topic_name
+
+Create Producer
+c:\kafkaPOC\kafka_2.11-1.0.1\bin\windows> kafka-console-producer.bat --broker-list localhost:9092 --topic kafka (this is a topic name)
+
+Create Consumer (Need to run only consumer)
+c:\kafkaPOC\kafka_2.11-1.0.1\bin\windows> kafka-console-consumer.bat --topic kafka --from-beginning --bootstrap-server localhost:9092
+
+Download link : https://www.apache.org/dyn/closer.cgi?path=/kafka/3.1.0/kafka_2.12-3.1.0.tgz
+
+youtube link for setting zookeeper and kafka server : https://www.youtube.com/watch?v=EUzH9khPYgs

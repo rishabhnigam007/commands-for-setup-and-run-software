@@ -1,0 +1,24 @@
+------------------- New Git command -------------------
+
+1. git init
+2. git add -A (for all files)
+3. git status (for knowing which file need to be commit)
+4. git commit -m "message"
+5. git branch (for knowing how many branch is there)
+6. git branch branch_name (for creating new branch)
+7. git checkout branch_name (for selecting new branch for code pushing)
+8. git merge branch_name (for merging newly created branch to current working branch)
+9. git remote add origin https:// git repository address.git
+10. git push origin main or master or your working_branch
+
+Step to push code in github :
+1 : go to project location in cmd (command prompt)
+2 : take ssh key using : ssh-keygen
+3 : if origin of repository is not add then add using : git remote add origin git@github.com:Freshers-Bootcamp/rishabh_java_assessment1.git
+4 : if already exists then set-url using : git remote set-url git@github.com:Freshers-Bootcamp/rishabh_java_assessment1.git
+5 : then set-url for origin using : git remote set-url origin git@github.com:Freshers-Bootcamp/rishabh_java_assessment1.git
+6 : then : git add .
+7 : then : git commit -m "message"
+8 : then : git branch -M main
+9 : git push -u origin main
+10 : done

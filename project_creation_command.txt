@@ -1,0 +1,17 @@
+<---     from website     --->
+mvn -B archetype:generate -D archetypeGroupId=com.adobe.aem -D archetypeArtifactId=aem-project-archetype -D archetypeVersion=26 -D appTitle="WKND Sites Project" -D appId="wknd" -D groupId="com.adobe.aem.guides.wknd" -D artifactId="aem-guides-wknd" -D version="0.0.1-SNAPSHOT"
+
+<----    from sandeep     --->
+mvn -B archetype:generate -D archetypeGroupId=com.adobe.aem -D archetypeArtifactId=aem-project-archetype -D archetypeVersion=26 -D appTitle="My Project" -D appId="myproject" -D groupId="com.myproject.aem" -D artifactId="myproject-aem-project" -D version="0.0.1-SNAPSHOT" -D aemVersion="6.5.4" -D includeDispatcherConfig=n -D includeExamples=n
+
+<----    from Rakesh      ---->
+mvn -B archetype:generate -D archetypeGroupId=com.adobe.aem -D aemVersion=6.5.7 -D archetypeArtifactId=aem-project-archetype -D archetypeVersion=30 -D appTitle="Bootcamp" -D appId="bootcamp" -D groupId="com.icf.bootcamp"
+
+< ----- updated ---->
+mvn -B archetype:generate -D archetypeGroupId=com.adobe.aem -D aemVersion=cloud -D archetypeArtifactId=aem-project-archetype -D archetypeVersion=30 -D appTitle="Bootcamp" -D appId="bootcamp" -D groupId="com.icf.bootcamp"
+
+< ----- latest artifact id ----- >
+mvn -B archetype:generate -D archetypeGroupId=com.adobe.aem -D aemVersion=cloud -D archetypeArtifactId=aem-project-archetype -D archetypeVersion=32 -D appTitle="Bootcamp" -D appId="bootcamp" -D groupId="com.icf.bootcamp"
+
+< ----- vikas artifact id ------ >
+mvn -B archetype:generate -D archetypeGroupId=com.adobe.aem -D aemVersion=6.5.8 -D archetypeArtifactId=aem-project-archetype -D archetypeVersion=30 -D appTitle="WKND Sites Project" -D appId="wknd" -D groupId="com.adobe.aem.guides.wknd" -D artifactId="aem-guides-wknd"

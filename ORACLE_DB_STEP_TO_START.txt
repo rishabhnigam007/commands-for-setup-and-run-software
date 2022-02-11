@@ -1,0 +1,22 @@
+STEPS FOR USING ORACLE NOSQL DATABASE IN COMMAND LINE
+
+FIRST TWO STEP IN ONE CMD AND OPEN CMD AS A ADMINISTRATOR
+
+Step 1: run jar file (kvclient.jar) using this command : java -Xmx64m -Xms64m -jar lib/kvclient.jar
+
+Step 2: open config for this using command : java -jar lib/kvstore.jar kvlite -secure-config disable
+
+THIS IS RUN WITH DIFFERENT CMD AND CMD OPEN AS A ADMINISTRATOR
+
+Step 3: set http proxy port for this using command : java -jar lib/httpproxy.jar -storeName kvstore -helperHosts ICF2038160:5000 -httpPort 8087 -verbose true
+
+THIS IS RUN WITH DIFFERENT CMD AND CMD OPEN AS A ADMINISTRATOR
+
+Step 4: then run server and accessing database table using command : java -jar lib/kvstore.jar runadmin -host ICF2038160 -port 5000 -store kvstore
+
+Step 5: want to connect as a sql use command : java -jar lib/sql.jar -helper-hosts ICF2038160:5000 -store kvstore
+
+Download link : https://www.oracle.com/database/technologies/nosql-database-server-downloads.html
+choose  kv-ce-20.3.19.zip(sha256)  only zip extension
+
+in other machine you can write localhost in place of ICF2038160:5000
