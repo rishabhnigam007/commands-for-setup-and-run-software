@@ -1,23 +1,58 @@
+Download and Tutorial:
+----------------------------
+Download link : https://www.apache.org/dyn/closer.cgi?path=/kafka/3.1.0/kafka_2.12-3.1.0.tgz latest version 3.7.0 --> https://kafka.apache.org/downloads and download latest binary scala version
+
+youtube link for setting zookeeper (daily code buffer) and kafka server : https://www.youtube.com/watch?v=EUzH9khPYgs
+----------------------------
+
+
+Settings:
+----------------------------
+Step 1: download and extract and then extracted folder paste to your c drive and rename kafka for best and simple configuration
+
+Step 2: then goto kafka\config folder in config folder server.properties file is there open this file in notepad++
+
+Step 3: in this file goto --Log Basics---- comment there put this-> log.dirs=c:/kafka/kafka-logs (replace with your location so that log generate in your destination)
+
+Step 4: then goto zookeeper.properties file and open and put this -> dataDir=c:/kafka/zookeeper-data
+----------------------------
+
+
+Command to Start Zookeeper first:
+----------------------------
+
 Run Zookeeper by opining a new cmd and type "zkserver"
-\bin\windows\zookeeper-server-start.bat ..\..\config\zookeeper.properties
+c:\kafka>.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+----------------------------
 
-.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
 
-command to run kafka server:
+Command to Run Kafka Server:
 ----------------------------
 
 1.Under kafka Installation Directory, run below command
-c:\kafkaPOC\kafka_2.11-1.0.1> .\bin\windows\kafka-server-start.bat .\config\server.properties
+c:\kafka>.\bin\windows\kafka-server-start.bat .\config\server.properties
+----------------------------
 
-Create Topic
-c:\kafkaPOC\kafka_2.11-1.0.1\bin\windows> kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic topic_name
 
-Create Producer
-c:\kafkaPOC\kafka_2.11-1.0.1\bin\windows> kafka-console-producer.bat --broker-list localhost:9092 --topic kafka (this is a topic name)
+Create Topic:  (topic name: test)
+----------------------------
+c:\kafka>.\bin\windows\kafka-topics.bat --create --topic test --partitions 1 --replication-factor 1 --bootstrap-server localhost:9092
+----------------------------
 
-Create Consumer (Need to run only consumer)
-c:\kafkaPOC\kafka_2.11-1.0.1\bin\windows> kafka-console-consumer.bat --topic kafka --from-beginning --bootstrap-server localhost:9092
 
-Download link : https://www.apache.org/dyn/closer.cgi?path=/kafka/3.1.0/kafka_2.12-3.1.0.tgz
+Create Producer:
+----------------------------
+c:\kafka>.\bin\windows\kafka-console-producer.bat --topic test --bootstrap-server localhost:9092 (test is a topic name)
+> producing message
+> hii
+> hello
+----------------------------
 
-youtube link for setting zookeeper (daily code buffer) and kafka server : https://www.youtube.com/watch?v=EUzH9khPYgs
+
+Create Consumer: (Need to run only consumer)
+----------------------------
+c:\kafka>.\bin\windows\kafka-console-consumer.bat --topic test --bootstrap-server localhost:9092 --from-beginning
+
+producing message
+hii
+hello
