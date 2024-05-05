@@ -20,4 +20,4 @@ c:\kafkaPOC\kafka_2.11-1.0.1\bin\windows> kafka-console-consumer.bat --topic kaf
 
 Download link : https://www.apache.org/dyn/closer.cgi?path=/kafka/3.1.0/kafka_2.12-3.1.0.tgz
 
-youtube link for setting zookeeper and kafka server : https://www.youtube.com/watch?v=EUzH9khPYgs
+youtube link for setting zookeeper (daily code buffer) and kafka server : https://www.youtube.com/watch?v=EUzH9khPYgs
