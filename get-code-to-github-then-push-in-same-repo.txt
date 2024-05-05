@@ -1,0 +1,15 @@
+Step 1: choose location in your local maching like c:\desktop
+
+Step 2: then open cmd in that place and hit command-> git init
+
+Step 3: git pull https://github.com/rishabhnigam007/commands-for-setup-and-run-software.git  (address of the repo which you want to pull into your local machine)
+
+Step 4: do whatever you want to do and make changes then hit command-> git add .
+
+Step 5: then command-> git commit -m "message of your choice"
+
+Step 6: then set remote origin command-> git remote add origin https://github.com/rishabhnigam007/commands-for-setup-and-run-software.git
+
+Step 7: then command-> git branch -M main
+
+Step 8: then push changes command-> git push -u origin main
