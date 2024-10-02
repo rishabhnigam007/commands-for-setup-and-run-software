@@ -1,0 +1,190 @@
+<------- Docker Steps ------->
+
+Steps:
+
+1.) install docker with this link and choose docker for windows wsl enabled (https://www.docker.com/)
+
+2.) install wsl in windows using this command (wsl --install) if not installed
+
+3.) to check wsl installed or not (type command: wsl)
+
+4.) to check version of the docker use command: (docker -v) or (docker -version)
+	Docker version 27.2.0, build 3ab4256
+
+5.) to run docker use command: docker run image_name 
+	for example: docker run hello-world
+
+6.) to check how many images are there use command: docker images
+
+	REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+	hello-world   latest    91fb4b041da2   17 months ago   24.4kB
+	openjdk       latest    9b448de897d2   20 months ago   727MB
+	openjdk       17        528707081fdb   2 years ago     727MB
+
+7.) to pull any image from the docker hub use command: docker pull openjdk (for example)
+
+8.) to pull specific version of any image from docker hub use command: docker pull openjdk:17
+
+9.) to search any image in docker hub use command: docker search image_name 
+	for example: docker search MySQL (it will tell you whether specific image is available in docker hub or not for pulling purpose)
+
+10.) to check if any container is running or not use command: docker ps (it will run and stop not visible because it will not start on interactive mode which is: -it)
+
+11.) to check all running container which is created use command: docker ps -a (-a for all)
+
+12.) to run specific docker image with specified container_name and interactive mode(cmd:> -it) and detached mode (cmd:> -d) enabled so that it will visible basically detached means it will running on background when we check all container which is running so it will have to show then use command: docker run --name javaContainer -it -d openjdk
+
+13.) whenever you will hit command (step 12) it will give you some id like: eba58cbe601203941399efc4212c75c69e0d92296c01468f5c8556176d5a6ab1
+
+14.) then check whether this container is running or not use command: docker ps (step 10) it will give you
+
+	CONTAINER ID   IMAGE     COMMAND    CREATED         STATUS         PORTS     NAMES
+	eba58cbe6012   openjdk   "jshell"   7 seconds ago   Up 6 seconds             javaContainer
+
+15.) if we want to execute container and want to work inside and want to enter inside the container then use command: docker exec -it javaContainer jshell
+
+	|  Welcome to JShell -- Version 18.0.2.1
+	|  For an introduction type: /help intro
+
+	jshell>System.out.println("hello world")
+	hello world
+	
+	jshell> /exit
+	|  Goodbye
+
+16.) to run mysql use environment variable (-e) then mysql_root_password with = password
+	cmd:> docker run --name mysqlDb -e MYSQL_ROOT_PASSWORD=root -d mysql
+	
+17.) we can inspect our container using command: docker inspect mysqlDb (it will give complete information of the container like id, created_date, path, args, state, image, name, config, cmd, networks etc)
+
+	for example: docker inspect openjdk
+	[
+		{
+			"Id": "sha256:9b448de897d211c9e0ec635a485650aed6e28d4eca1efbc34940560a480b3f1f",
+			"RepoTags": [
+				"openjdk:latest"
+			],
+			"RepoDigests": [
+				"openjdk@sha256:9b448de897d211c9e0ec635a485650aed6e28d4eca1efbc34940560a480b3f1f"
+			],
+			"Parent": "",
+			"Comment": "",
+			"Created": "2023-02-08T19:46:03.323166355Z",
+			"DockerVersion": "27.2.0",
+			"Author": "",
+			"Config": {
+				"Hostname": "",
+				"Domainname": "",
+				"User": "",
+				"AttachStdin": false,
+				"AttachStdout": false,
+				"AttachStderr": false,
+				"Tty": false,
+				"OpenStdin": false,
+				"StdinOnce": false,
+				"Env": [
+					"PATH=/usr/java/openjdk-18/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+					"JAVA_HOME=/usr/java/openjdk-18",
+					"LANG=C.UTF-8",
+					"JAVA_VERSION=18.0.2.1"
+				],
+				"Cmd": [
+					"jshell"
+				],
+				"Image": "",
+				"Volumes": null,
+				"WorkingDir": "",
+				"Entrypoint": null,
+				"OnBuild": null,
+				"Labels": null
+			},
+			"Architecture": "amd64",
+			"Os": "linux",
+			"Size": 245563341,
+			"GraphDriver": {
+				"Data": null,
+				"Name": "overlayfs"
+			},
+			"RootFS": {
+				"Type": "layers",
+				"Layers": [
+					"sha256:9cd9df9ffc972e9abc946d855162ef0c40dff9a89f10c962b7920154a3d943d8",
+					"sha256:077bff59ce5723e3c7d78bdf4fd8b10d72f6f8474b97cdb9323816aa5d8314a6",
+					"sha256:56285d9a776094205dc0b66078bf0719f50c734a00754292e6fcbd13b17f5155"
+				]
+			},
+			"Metadata": {
+				"LastTagTime": "2024-10-02T19:07:23.708653572Z"
+			}
+		}
+	]
+
+18.) to execute mysql use command: docker exec -it mysqlDb bash (then give mysql -p for entering password and type password root which is previously set and hit enter)  
+
+	bash-5.1# mysql -p
+	Enter password:
+	Welcome to the MySQL monitor.  Commands end with ; or \g.
+	Your MySQL connection id is 8
+	Server version: 9.0.1 MySQL Community Server - GPL
+
+	Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+	Oracle is a registered trademark of Oracle Corporation and/or its
+	affiliates. Other names may be trademarks of their respective
+	owners.
+
+	Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+	mysql> show databases;
+	+--------------------+
+	| Database           |
+	+--------------------+
+	| information_schema |
+	| mysql              |
+	| performance_schema |
+	| sys                |
+	+--------------------+
+	4 rows in set (0.01 sec)
+
+	mysql> exit
+	Bye
+	bash-5.1# exit
+	exit
+	
+19.) to pull nginx server use command: docker pull nginx (nginx is a server for hosting images)
+
+	here you can learn all command in docker hub link: https://hub.docker.com/_/nginx
+
+20.) to start nginx server use command: docker run --name nginxServer -d -p 8080:80 nginx (-p for port colon for reference)
+
+	73544ae0ea7d667df2fcc6c973b8bdf783bad06058365d1d9f887c0549016266
+
+21.) to verify this nginx server is running or not open chrome browser and search localhost:8080 (it will running)
+
+22.) to stop running container use command: docker stop container_name or container_id
+	for example: docker stop javaContainer
+	javaContainer (container is stopped)
+	
+	for example: docker stop 73544ae0ea7d (using nginx container id)
+	73544ae0ea7d (container is stopped)
+	
+	or
+	
+	for example: docker stop 735 (using nginx container id) (sort id also it will get)
+	735 (container is stopped)
+	
+23.) to remove container use command: docker rm container_name or container_id
+	for example: docker rm mysqlDb or docker rm eb
+	
+24.) to remove multiple container in one command use command: docker rm container_id1 container_id2 . . .
+
+25.) to remove images from docker use command: docker remove repository_name
+	for example: docker rmi nginx
+	Untagged: nginx:latest
+	Deleted: sha256:b5d3f3e104699f0768e5ca8626914c16e52647943c65274d8a9e63072bd015bb
+	
+26.) to restart docker container use command: docker restart conatiner_name
+
+27.) to check docker log for specific container use command: docker logs javaContainer
+
+28.) 
